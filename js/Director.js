@@ -18,7 +18,9 @@ export class Director {
    * 定义执行渲染方法
    */
   run() {
-    const bg = this.dataStore.get('bg')
-    bg.draw()
+    this.dataStore.get('bg').draw()
+    this.dataStore.get('pipe_up').draw()
+    this.dataStore.get('pipe_down').draw()
+    // requestAnimationFrame(() => this.run())
   }
 }

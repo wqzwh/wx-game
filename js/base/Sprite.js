@@ -30,17 +30,26 @@ export class Sprite {
     return DataStore.getInstance().res.get(key)
   }
 
-  draw() {
-    this.ctx.drawImage(
-      this.img,
-      this.sx,
-      this.sy,
-      this.swidth,
-      this.sheight,
-      this.x,
-      this.y,
-      this.width,
-      this.height
-    )
+  /**
+   * img 规定要使用的图像、画布或视频
+   * sx 开始剪切的 x 坐标位置
+   * sy 开始剪切的 y 坐标位置
+   * swidth 被剪切图像的宽度
+   * sheight 被剪切图像的高度
+   * x 在画布上放置图像的 x 坐标位置
+   * y 在画布上放置图像的 y 坐标位置
+   * width 要使用的图像的宽度。（伸展或缩小图像）
+   * height 要使用的图像的高度。（伸展或缩小图像）
+   */
+  draw(img = this.img,
+      sx = this.sx,
+      sy = this.sy,
+      swidth = this.swidth,
+      sheight = this.sheight,
+      x = this.x,
+      y = this.y,
+      width = this.width,
+      height = this.height) {
+    this.ctx.drawImage(img, sx, sy, swidth, sheight, x, y, width, height)
   }
 }
