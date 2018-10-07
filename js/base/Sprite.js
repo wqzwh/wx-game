@@ -1,6 +1,6 @@
+import {DataStore} from './DataStore'
 export class Sprite {
-  constructor(ctx = null,
-    img = null,
+  constructor(img = null,
     sx = 0,
     sy = 0,
     swidth = 0,
@@ -9,7 +9,8 @@ export class Sprite {
     y = 0,
     width = 0,
     height = 0) {
-      this.ctx = ctx
+      this.dataStore = DataStore.getInstance()
+      this.ctx = this.dataStore.ctx
       this.img = img
       this.sx = sx
       this.sy = sy
@@ -19,6 +20,10 @@ export class Sprite {
       this.y = y
       this.width = width
       this.height = height
+  }
+
+  static getImage(key) {
+    return DataStore.getInstance().res.get(key)
   }
 
   draw() {

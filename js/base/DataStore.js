@@ -14,6 +14,9 @@ export class DataStore {
 
   // 将资源更新到DataStore中
   put(key, value) {
+    if(typeof value === 'function') {
+      value = new value()
+    }
     this.map.set(key, value)
     return this
   }

@@ -22,8 +22,7 @@ export default class Main {
 
   init() {
     // 通过DataStore中的put来添加新的资源
-    this.dataStore.put('bg', new BackGround(this.ctx, this.dataStore.res.get('bg')))
-
+    this.dataStore.put('bg', BackGround)
     this.director.run()
   }
 }

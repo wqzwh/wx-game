@@ -1,7 +1,8 @@
 import {Sprite} from '../base/Sprite'
 export class BackGround extends Sprite {
-  constructor(ctx, img) {
+  constructor() {
     const info = wx.getSystemInfoSync()
-    super(ctx, img, 0, 0, img.width, img.height, 0, 0, info.windowWidth, info.windowHeight)
+    const img = Sprite.getImage('bg')
+    super(img, 0, 0, img.width, img.height, 0, 0, info.windowWidth, info.windowHeight)
   }
 }
