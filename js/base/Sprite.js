@@ -22,6 +22,10 @@ export class Sprite {
       this.height = height
   }
 
+  /**
+   * 定义静态方法获取img资源
+   * @param {*} key 
+   */
   static getImage(key) {
     return DataStore.getInstance().res.get(key)
   }

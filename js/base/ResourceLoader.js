@@ -9,6 +9,10 @@ export class ResourceLoader {
     }
   }
 
+  /**
+   * 资源加载完成后再执行回调函数
+   * @param {*} cb 
+   */
   onLoaded(cb) {
     let count = 0
     for (let value of this.map.values()) {
@@ -21,7 +25,13 @@ export class ResourceLoader {
     }
   }
 
-  static create() {
-    return new ResourceLoader()
+  /**
+   * 定义初始化静态方法
+   */
+  static getInstance() {
+    if(!ResourceLoader.instance) {
+      ResourceLoader.instance = new ResourceLoader()
+    }
+    return ResourceLoader.instance
   }
 }

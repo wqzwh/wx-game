@@ -9,17 +9,23 @@ export default class Main {
     this.ctx = this.canvas.getContext('2d')
     this.dataStore = DataStore.getInstance()
     this.director = Director.getInstance()
-    const Rloader = ResourceLoader.create();
+    const Rloader = ResourceLoader.getInstance();
     Rloader.onLoaded(map => this.onResourceLoaded(map))
   }
 
-  // 资源只会加载一次
+  /**
+   * 资源加载完成后执行相应的方法
+   * @param {*} map 
+   */
   onResourceLoaded(map) {
     this.dataStore.ctx = this.ctx
     this.dataStore.res = map
     this.init()
   }
 
+  /**
+   * 入口文件初始化方法
+   */
   init() {
     // 通过DataStore中的put来添加新的资源
     this.dataStore.put('bg', BackGround)
