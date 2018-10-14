@@ -27,6 +27,7 @@ export default class Main {
    * 入口文件初始化方法
    */
   init() {
+    this.director.isGameOver = false
     // 通过DataStore中的put来添加新的资源
     this.dataStore
       .put('bg', BackGround)
