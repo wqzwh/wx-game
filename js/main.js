@@ -3,6 +3,7 @@ import {ResourceLoader} from './base/ResourceLoader'
 import {BackGround} from './runtime/BackGround'
 import {DataStore} from './base/DataStore'
 import {Director} from './Director'
+import {Birders} from './runtime/Birders'
 export default class Main {
   constructor() {
     this.canvas = wx.createCanvas()
@@ -32,7 +33,24 @@ export default class Main {
     this.dataStore
       .put('bg', BackGround)
       .put('pipes', [])
+      .put('bird2_0', Birders)
+    this.registerEvent()  
     this.director.createPipe()  
     this.director.run()
+  }
+
+  /** 
+   * 
+   * 注册事件
+   * 
+  */
+  registerEvent() {
+    wx.onTouchStart((e) => {
+      if(this.director.isGameOver) {
+        this.init()
+      } else {
+        this.director.birdersEvent()
+      }
+    })
   }
 }

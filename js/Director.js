@@ -30,6 +30,16 @@ export class Director {
     this.dataStore.get('pipes').push(new PipeDown(top))
   }
 
+  /** 
+   * 
+   * 鸟绑定事件
+   * 
+  */
+  birdersEvent() {
+    this.dataStore.get('bird2_0').y = this.dataStore.get('bird2_0').birdersY
+    this.dataStore.get('bird2_0').time = 0
+  }
+
   /**
    * 定义执行渲染方法
    */
@@ -54,6 +64,9 @@ export class Director {
       this.dataStore.get('pipes').forEach(value => {
         value.draw()
       });
+
+      this.dataStore.get('bird2_0').draw()
+      
       let timer = requestAnimationFrame(() => this.run())
       this.dataStore.put('timer', timer)
     } else {
