@@ -21,6 +21,6 @@ export class Director {
     this.dataStore.get('bg').draw()
     this.dataStore.get('pipe_up').draw()
     this.dataStore.get('pipe_down').draw()
-    // requestAnimationFrame(() => this.run())
+    requestAnimationFrame(() => this.run())
   }
 }
