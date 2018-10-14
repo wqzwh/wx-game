@@ -2,17 +2,18 @@ import {Pipe} from './Pipe'
 import {Sprite} from '../base/Sprite'
 
 export class PipeUp extends Pipe {
-  constructor() {
+  constructor(top) {
     const img = Sprite.getImage('pipe_up')
-    super(img)
+    super(img, top)
     this.info = wx.getSystemInfoSync()
+    this.top = top
   }
   
   /**
    * 自定义draw方法
    */
   draw() {
-    this.y = - this.info.windowHeight / 5
-    super.draw(this.img, this.sx, this.sy, this.swidth, this.sheight, this.x, this.y, this.width, this.height)
+    this.y = this.top - this.height
+    super.draw()
   }
 }

@@ -14,9 +14,6 @@ export class Pipe extends Sprite {
    * 自定义draw方法
    */
   draw() {
-    if(this.x < this.wwidth && this.x < -this.swidth) {
-      this.x = this.wwidth
-    }
     this.x = this.x - this.pipeSpeed
     super.draw(this.img, this.sx, this.sy, this.swidth, this.sheight, this.pipeX, this.y, this.width, this.height)
   }

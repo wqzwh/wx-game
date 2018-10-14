@@ -1,8 +1,6 @@
 
 import {ResourceLoader} from './base/ResourceLoader'
 import {BackGround} from './runtime/BackGround'
-import {PipeUp} from './runtime/PipeUp'
-import {PipeDown} from './runtime/PipeDown'
 import {DataStore} from './base/DataStore'
 import {Director} from './Director'
 export default class Main {
@@ -32,8 +30,8 @@ export default class Main {
     // 通过DataStore中的put来添加新的资源
     this.dataStore
       .put('bg', BackGround)
-      .put('pipe_up', PipeUp)
-      .put('pipe_down', PipeDown)
+      .put('pipes', [])
+    this.director.createPipe()  
     this.director.run()
   }
 }
