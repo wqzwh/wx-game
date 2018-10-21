@@ -95,6 +95,11 @@ export class Director {
 
     // 加分
     if(birds.birdersX > pipes[0].x + pipes[0].width && score.isScore) {
+      wx.vibrateLong({
+        success: () => {
+          console.log('振动了')
+        }
+      })
       score.isScore = false
       score.ss++
     }
@@ -136,6 +141,7 @@ export class Director {
       this.dataStore.get('button_play').draw()
       cancelAnimationFrame(this.dataStore.get('timer'))
       this.dataStore.destroy()
+      wx.triggerGC()
     }
   }
 }
