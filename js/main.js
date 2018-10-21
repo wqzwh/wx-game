@@ -4,6 +4,8 @@ import {BackGround} from './runtime/BackGround'
 import {DataStore} from './base/DataStore'
 import {Director} from './Director'
 import {Birders} from './runtime/Birders'
+import {StartButton} from './player/StartButton'
+import {Score} from './player/Score'
 export default class Main {
   constructor() {
     this.canvas = wx.createCanvas()
@@ -34,6 +36,8 @@ export default class Main {
       .put('bg', BackGround)
       .put('pipes', [])
       .put('bird2_0', Birders)
+      .put('button_play', StartButton)
+      .put('score', Score)
     this.registerEvent()  
     this.director.createPipe()  
     this.director.run()

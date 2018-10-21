@@ -8,4 +8,5 @@ export const Resource = [
   ['bird2_0', 'images/bird2_0.png'],
   ['bird2_1', 'images/bird2_1.png'],
   ['bird2_2', 'images/bird2_2.png'],
+  ['button_play', 'images/button_play.png'],
 ]
