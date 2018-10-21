@@ -87,6 +87,11 @@ export class Director {
 
       if(Director.isChecked(birdsBorder, pipeBorder)) {
         console.log('撞击了')
+        wx.vibrateLong({
+          success: () => {
+            console.log('振动了')
+          }
+        })
         this.isGameOver = true
         return
       }
